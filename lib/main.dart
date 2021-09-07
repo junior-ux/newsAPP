@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/views/article.dart';
+//import 'package:news_app/views/article.dart';
 import 'package:news_app/views/splash.dart';
 
 void main() {
