@@ -18,19 +18,6 @@ class Cards extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        top: 10.0,
-                      ),
-                      child: Text(
-                        "Principais noticias",
-                        style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 40, 20, 20),
-                    ),
                     ListView.builder(
                       primary: false,
                       shrinkWrap: true,
@@ -46,8 +33,8 @@ class Cards extends StatelessWidget {
                               child: Stack(
                                 children: <Widget>[
                                   Image.asset(
-                                    "assets/images/tecnologias.png",
-                                    fit: BoxFit.fill,
+                                    "assets/images/ia.jpg",
+                                    fit: BoxFit.fitWidth,
                                   ),
                                   SizedBox.expand(
                                     child: Container(
@@ -78,7 +65,7 @@ class Cards extends StatelessWidget {
                                               height: 5.0,
                                             ),
                                             Text(
-                                              'Cresce em 200% a venda de notebooks',
+                                              'Cresce em 100% a venda de notebooks',
                                               style: TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 23.0),
