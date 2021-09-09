@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/constants/constants.dart';
+import 'package:news_app/helper/news.dart';
+import 'package:news_app/models/article_model.dart';
+
+List<ArticleModel> articles = [];
 
 class Cards extends StatelessWidget {
   const Cards({
@@ -21,7 +25,7 @@ class Cards extends StatelessWidget {
                     ListView.builder(
                       primary: false,
                       shrinkWrap: true,
-                      itemCount: 7,
+                      itemCount: articles.length,
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -33,7 +37,7 @@ class Cards extends StatelessWidget {
                               child: Stack(
                                 children: <Widget>[
                                   Image.asset(
-                                    "assets/images/ia.jpg",
+                                    "assets/images/tecnologias.jpg",
                                     fit: BoxFit.fitWidth,
                                   ),
                                   SizedBox.expand(

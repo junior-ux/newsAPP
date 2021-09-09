@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/constants/constants.dart';
 import 'package:news_app/helper/data.dart';
+import 'package:news_app/helper/news.dart';
+import 'package:news_app/models/article_model.dart';
 import 'package:news_app/widgets/card.dart';
 import 'package:news_app/widgets/categorias_widget.dart';
 import 'package:news_app/widgets/navegation_buttom.dart';
@@ -20,10 +22,21 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<CategoryModel> categorias = [];
+
+  bool _loading = true;
   @override
   void initState() {
     super.initState();
     categorias = getCategories();
+  }
+
+  getNews() async {
+    News newsClass = News();
+    await newsClass.getNews();
+    articles = newsClass.news;
+    setState(() {
+      _loading = false;
+    });
   }
 
   @override
@@ -34,15 +47,21 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
         backgroundColor: kCorSecundaria,
       ),
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            CategoriasWidget(categorias: categorias),
-            PrincipaisNoticias(),
-            Cards(),
-          ],
-        ),
-      ),
+      body: _loading
+          ? Center(
+              child: Container(
+                child: CircularProgressIndicator(color: kCorPrimaria),
+              ),
+            )
+          : Container(
+              child: Column(
+                children: <Widget>[
+                  CategoriasWidget(categorias: categorias),
+                  PrincipaisNoticias(),
+                  Cards(),
+                ],
+              ),
+            ),
       bottomNavigationBar: Navegacao(),
     );
   }
